@@ -105,7 +105,7 @@ $.Osiris = (function () {
       src: "s2r://panorama/images/icons/ui/recent.vsvg",
       texturewidth: "24"
     });
-
+  
     var centerContainer = $.CreatePanel('Panel', navbar, '', {
       class: "content-navbar__tabs__center-container",
     });
@@ -125,7 +125,7 @@ $.Osiris = (function () {
     });
 
     $.CreatePanel('Label', visualsTabButton, '', { text: "视觉类" });
-
+    
     var soundTabButton = $.CreatePanel('RadioButton', centerContainer, 'sound_button', {
       group: "SettingsNavBar",
       class: "content-navbar__tabs__btn",
@@ -139,17 +139,17 @@ $.Osiris = (function () {
     });
 
     var unloadButton = $.CreatePanel('Button', rightContainer, 'UnloadButton', {
-      class: "content-navbar__tabs__btn",
-      onactivate: "UiToolkitAPI.ShowGenericPopupOneOptionCustomCancelBgStyle('卸载 Osiris', '你确定你要卸载 Osiris?【Translated by MemoryXL】', '', '确认', function() { $.Osiris.goHome(); $.Osiris.addCommand('unload'); }, '取消', function() {}, 'dim');"
+        class: "content-navbar__tabs__btn",
+        onactivate: "UiToolkitAPI.ShowGenericPopupOneOptionCustomCancelBgStyle('卸载 Osiris', '你确定你要卸载 Osiris?【Translated by MemoryXL】', '', '确认', function() { $.Osiris.goHome(); $.Osiris.addCommand('unload'); }, '取消', function() {}, 'dim');"
     });
 
     unloadButton.SetPanelEvent('onmouseover', function () { UiToolkitAPI.ShowTextTooltip('UnloadButton', 'Unload'); });
     unloadButton.SetPanelEvent('onmouseout', function () { UiToolkitAPI.HideTextTooltip(); });
 
     $.CreatePanel('Image', unloadButton, '', {
-      src: "s2r://panorama/images/icons/ui/cancel.vsvg",
-      texturewidth: "24",
-      class: "negativeColor"
+        src: "s2r://panorama/images/icons/ui/cancel.vsvg",
+        texturewidth: "24",
+        class: "negativeColor"
     });
   };
 
@@ -179,9 +179,9 @@ $.Osiris = (function () {
     $.CreatePanel('Label', outlineGlowTabButton, '', { text: "轮廓发光" });
 
     var modelGlowTabButton = $.CreatePanel('RadioButton', centerContainer, 'model_glow_button', {
-      group: "VisualsNavBar",
-      class: "content-navbar__tabs__btn",
-      onactivate: "$.Osiris.navigateToSubTab('visuals', 'model_glow');"
+        group: "VisualsNavBar",
+        class: "content-navbar__tabs__btn",
+        onactivate: "$.Osiris.navigateToSubTab('visuals', 'model_glow');"
     });
 
     $.CreatePanel('Label', modelGlowTabButton, '', { text: "模型发光" });
@@ -193,7 +193,7 @@ $.Osiris = (function () {
     class: "full-width full-height"
   });
 
-  var createTab = function (tabName) {
+  var createTab = function(tabName) {
     var tab = $.CreatePanel('Panel', settingContent, tabName, {
       useglobalcontext: "true",
       class: "SettingsMenuTab"
@@ -202,11 +202,11 @@ $.Osiris = (function () {
     var content = $.CreatePanel('Panel', tab, '', {
       class: "SettingsMenuTabContent vscroll"
     });
-
+  
     return content;
   };
 
-  var createVisualsTab = function () {
+  var createVisualsTab = function() {
     var tab = $.CreatePanel('Panel', settingContent, 'visuals', {
       useglobalcontext: "true",
       class: "SettingsMenuTab"
@@ -217,11 +217,11 @@ $.Osiris = (function () {
     var content = $.CreatePanel('Panel', tab, '', {
       class: "full-width full-height"
     });
-
+  
     return content;
   };
 
-  var createSubTab = function (tab, subTabName) {
+  var createSubTab = function(tab, subTabName) {
     var subTab = $.CreatePanel('Panel', tab, subTabName, {
       useglobalcontext: "true",
       class: "SettingsMenuTab"
@@ -271,8 +271,8 @@ $.Osiris = (function () {
 
     for (let i = 0; i < options.length; ++i) {
       dropdown.AddOption($.CreatePanel('Label', dropdown, i, {
-        value: i,
-        text: options[i]
+      value: i,
+      text: options[i]
       }));
     }
   };
@@ -334,12 +334,12 @@ $.Osiris = (function () {
 // split the string literal because MSVC does not support string literals longer than 16k chars - error C2026
 u8R"(
   var hud = createTab('hud');
-
+  
   var bomb = createSection(hud, '炸弹');
   createYesNoDropDown(bomb, "显示炸弹爆炸倒计时和包点", 'hud', 'bomb_timer');
   separator(bomb);
   createYesNoDropDown(bomb, "显示炸弹拆除倒计时", 'hud', 'defusing_alert');
-
+  
   var killfeed = createSection(hud, '击杀信息');
   separator(killfeed);
   createYesNoDropDown(killfeed, "保留回合击杀信息", 'hud', 'preserve_killfeed');
@@ -470,7 +470,7 @@ u8R"(
   $.Osiris.navigateToSubTab('visuals', 'player_info');
 
   var sound = createTab('sound');
-
+  
   var playerSoundVisualization = createSection(sound, '播放器声音可视化');
   separator(playerSoundVisualization);
   createYesNoDropDown(playerSoundVisualization, "可视化玩家脚步声", 'sound', 'visualize_player_footsteps');
