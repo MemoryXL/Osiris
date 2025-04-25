@@ -135,7 +135,7 @@ $.Osiris = (function () {
     $.CreatePanel('Label', soundTabButton, '', { text: "声音类" });
 
     var rightContainer = $.CreatePanel('Panel', navbar, '', {
-      style: "horizontal-align: right; flow-children: right; height: 100%; margin-right: 70px;"
+        style: "horizontal-align: right; flow-children: right; height: 100%; margin-right: 70px;"
     });
 
     var unloadButton = $.CreatePanel('Button', rightContainer, 'UnloadButton', {
@@ -233,7 +233,7 @@ $.Osiris = (function () {
     return content;
   };
 
-  var createSection = function (tab, sectionName) {
+  var createSection = function(tab, sectionName) {
     var background = $.CreatePanel('Panel', tab, '', {
       class: "SettingsBackground"
     });
