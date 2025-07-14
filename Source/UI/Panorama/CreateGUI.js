@@ -500,9 +500,9 @@ u8R"(
   createOnOffDropDown(modelGlow, "总开关", 'visuals', 'model_glow_enable');
 
   var playerModelGlow = createSection(modelGlowTab, '玩家');
-  createDropDown(playerModelGlow, "玩家模型发光", 'visuals', 'player_model_glow', ['Enemies', 'All Players', 'Off']);
+  createDropDown(playerModelGlow, "玩家模型发光", 'visuals', 'player_model_glow', ['仅敌人', '所有人', '关']);
   separator(playerModelGlow);
-  createDropDown(playerModelGlow, "颜色", 'visuals', 'player_model_glow_color', ['Player / Team Color', 'Team Color', 'Health-based', 'Enemy / Ally']);
+  createDropDown(playerModelGlow, "颜色", 'visuals', 'player_model_glow_color', ['玩家颜色', '队伍颜色', '随血量变化', '敌人/盟友']);
   separator(playerModelGlow);
   separator(playerModelGlow);
   createHueSlider(playerModelGlow, "蓝色玩家色调", 'player_model_glow_blue_hue', 191, 240);
