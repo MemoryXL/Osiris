@@ -92,16 +92,16 @@ $.Osiris = (function () {
       text: "default.cfg"
     });
 
-    activeCfgNameLabel.SetPanelEvent('onmouseover', function () { UiToolkitAPI.ShowTextTooltip('ActiveConfigName', 'Active config file. Changes are saved automatically.'); });
+    activeCfgNameLabel.SetPanelEvent('onmouseover', function () { UiToolkitAPI.ShowTextTooltip('ActiveConfigName', '当前配置文件（更改会自动保存）【Translated by MemoryXL】'); });
     activeCfgNameLabel.SetPanelEvent('onmouseout', function () { UiToolkitAPI.HideTextTooltip(); });
 
     var restoreDefaultsButton = $.CreatePanel('Button', leftContainer, 'RestoreDefaultsButton', {
       class: "content-navbar__tabs__btn",
       style: "margin-left: 5px;",
-      onactivate: "UiToolkitAPI.ShowGenericPopupOneOptionCustomCancelBgStyle('Restore Defaults', 'Are you sure you want to restore default settings in the active config file (default.cfg)?', '', 'RESTORE DEFAULTS', function() { $.Osiris.addCommand('restore_defaults'); }, 'RETURN', function() {}, 'dim');"
+      onactivate: "UiToolkitAPI.ShowGenericPopupOneOptionCustomCancelBgStyle('恢复默认值', '你确定要恢复当前配置文件为默认设置吗（default.cfg）？', '', '确认', function() { $.Osiris.addCommand('restore_defaults'); }, '取消', function() {}, 'dim');"
     });
 
-    restoreDefaultsButton.SetPanelEvent('onmouseover', function () { UiToolkitAPI.ShowTextTooltip('RestoreDefaultsButton', 'Restore defaults'); });
+    restoreDefaultsButton.SetPanelEvent('onmouseover', function () { UiToolkitAPI.ShowTextTooltip('RestoreDefaultsButton', '恢复默认值'); });
     restoreDefaultsButton.SetPanelEvent('onmouseout', function () { UiToolkitAPI.HideTextTooltip(); });
 
     $.CreatePanel('Image', restoreDefaultsButton, '', {
@@ -119,7 +119,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToTab('combat');"
     });
 
-    $.CreatePanel('Label', combatTabButton, '', { text: "Combat" });
+    $.CreatePanel('Label', combatTabButton, '', { text: "攻击类" });
 
     var hudTabButton = $.CreatePanel('RadioButton', centerContainer, 'hud_button', {
       group: "SettingsNavBar",
@@ -135,7 +135,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToTab('visuals');"
     });
 
-    $.CreatePanel('Label', visualsTabButton, '', { text: "Visuals" });
+    $.CreatePanel('Label', visualsTabButton, '', { text: "视觉类" });
     
     var soundTabButton = $.CreatePanel('RadioButton', centerContainer, 'sound_button', {
       group: "SettingsNavBar",
@@ -143,7 +143,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToTab('sound');"
     });
 
-    $.CreatePanel('Label', soundTabButton, '', { text: "Sound" });
+    $.CreatePanel('Label', soundTabButton, '', { text: "声音类" });
 
     var rightContainer = $.CreatePanel('Panel', navbar, '', {
         style: "horizontal-align: right; flow-children: right; height: 100%; margin-right: 70px;"
@@ -151,10 +151,10 @@ $.Osiris = (function () {
 
     var unloadButton = $.CreatePanel('Button', rightContainer, 'UnloadButton', {
         class: "content-navbar__tabs__btn",
-        onactivate: "UiToolkitAPI.ShowGenericPopupOneOptionCustomCancelBgStyle('Unload Osiris', 'Are you sure you want to unload Osiris?', '', 'UNLOAD', function() { $.Osiris.goHome(); $.Osiris.addCommand('unload'); }, 'RETURN', function() {}, 'dim');"
+        onactivate: "UiToolkitAPI.ShowGenericPopupOneOptionCustomCancelBgStyle('卸载 Osiris', '你确定你要卸载 Osiris？【Translated by MemoryXL】', '', '确认', function() { $.Osiris.goHome(); $.Osiris.addCommand('unload'); }, '取消', function() {}, 'dim');"
     });
 
-    unloadButton.SetPanelEvent('onmouseover', function () { UiToolkitAPI.ShowTextTooltip('UnloadButton', 'Unload'); });
+    unloadButton.SetPanelEvent('onmouseover', function () { UiToolkitAPI.ShowTextTooltip('UnloadButton', '卸载'); });
     unloadButton.SetPanelEvent('onmouseout', function () { UiToolkitAPI.HideTextTooltip(); });
 
     $.CreatePanel('Image', unloadButton, '', {
@@ -179,7 +179,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToSubTab('visuals', 'player_info');"
     });
 
-    $.CreatePanel('Label', playerInfoTabButton, '', { text: "Player Info In World" });
+    $.CreatePanel('Label', playerInfoTabButton, '', { text: "玩家信息" });
 
     var outlineGlowTabButton = $.CreatePanel('RadioButton', centerContainer, 'outline_glow_button', {
       group: "VisualsNavBar",
@@ -187,7 +187,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToSubTab('visuals', 'outline_glow');"
     });
 
-    $.CreatePanel('Label', outlineGlowTabButton, '', { text: "Outline Glow" });
+    $.CreatePanel('Label', outlineGlowTabButton, '', { text: "轮廓发光" });
 
     var modelGlowTabButton = $.CreatePanel('RadioButton', centerContainer, 'model_glow_button', {
         group: "VisualsNavBar",
@@ -195,7 +195,7 @@ $.Osiris = (function () {
         onactivate: "$.Osiris.navigateToSubTab('visuals', 'model_glow');"
     });
 
-    $.CreatePanel('Label', modelGlowTabButton, '', { text: "Model Glow" });
+    $.CreatePanel('Label', modelGlowTabButton, '', { text: "模型发光" });
   
     var viewmodelTabButton = $.CreatePanel('RadioButton', centerContainer, 'viewmodel_button', {
         group: "VisualsNavBar",
@@ -203,7 +203,7 @@ $.Osiris = (function () {
         onactivate: "$.Osiris.navigateToSubTab('visuals', 'viewmodel');"
     });
 
-    $.CreatePanel('Label', viewmodelTabButton, '', { text: "Viewmodel" });
+    $.CreatePanel('Label', viewmodelTabButton, '', { text: "模型视图" });
   };
 
   var createCombatNavbar = function () {
@@ -221,7 +221,7 @@ $.Osiris = (function () {
       onactivate: "$.Osiris.navigateToSubTab('combat', 'sniper_rifles');"
     });
 
-    $.CreatePanel('Label', sniperRiflesTabButton, '', { text: "Sniper rifles" });
+    $.CreatePanel('Label', sniperRiflesTabButton, '', { text: "狙击枪" });
   };
 
   createNavbar();
@@ -327,11 +327,11 @@ $.Osiris = (function () {
   };
 
   var createOnOffDropDown = function (parent, labelText, section, feature) {
-    createDropDown(parent, labelText, section, feature, ["On", "Off"]);
+    createDropDown(parent, labelText, section, feature, ["开", "关"]);
   };
 
   var createYesNoDropDown = function (parent, labelText, section, feature) {
-    createDropDown(parent, labelText, section, feature, ["Yes", "No"]);
+    createDropDown(parent, labelText, section, feature, ["是", "否"]);
   };
 
   var separator = function (parent) {
@@ -472,124 +472,124 @@ u8R"(
 
   var hud = createTab('hud');
   
-  var bomb = createSection(hud, 'Bomb');
-  createYesNoDropDown(bomb, "Show Bomb Explosion Countdown And Site", 'hud', 'bomb_timer');
+  var bomb = createSection(hud, '炸弹');
+  createYesNoDropDown(bomb, "显示炸弹爆炸倒计时和包点", 'hud', 'bomb_timer');
   separator(bomb);
-  createYesNoDropDown(bomb, "Show Bomb Defuse Countdown", 'hud', 'defusing_alert');
+  createYesNoDropDown(bomb, "显示炸弹拆除倒计时", 'hud', 'defusing_alert');
   separator(bomb);
-  createYesNoDropDown(bomb, "Show Bomb Plant Alert", 'hud', 'bomb_plant_alert');
+  createYesNoDropDown(bomb, "显示安装炸弹警告", 'hud', 'bomb_plant_alert');
 
-  var killfeed = createSection(hud, 'Killfeed');
+  var killfeed = createSection(hud, '击杀记录');
   separator(killfeed);
-  createYesNoDropDown(killfeed, "Preserve My Killfeed During The Round", 'hud', 'preserve_killfeed');
+  createYesNoDropDown(killfeed, "保留回合击杀记录", 'hud', 'preserve_killfeed');
 
-  var time = createSection(hud, 'Time');
+  var time = createSection(hud, '计时器');
   separator(time);
-  createYesNoDropDown(time, "Show Post-round Timer", 'hud', 'postround_timer');
+  createYesNoDropDown(time, "显示回合结束时间计时", 'hud', 'postround_timer');
 
   var visuals = createVisualsTab();
 
   var playerInfoTab = createSubTab(visuals, 'player_info');
 
-  var playerInfo = createSection(playerInfoTab, 'Player Info In World');
-  createDropDown(playerInfo, "Master Switch", 'visuals', 'player_information_through_walls', ['Enemies', 'All Players', 'Off']);
+  var playerInfo = createSection(playerInfoTab, '玩家信息');
+  createDropDown(playerInfo, "总开关", 'visuals', 'player_information_through_walls', ['敌人', '所有玩家', '关闭']);
 
-  var playerPosition = createSection(playerInfoTab, 'Player Position');
-  createYesNoDropDown(playerPosition, "Show Player Position Arrow", 'visuals', 'player_info_position');
+  var playerPosition = createSection(playerInfoTab, '玩家位置');
+  createYesNoDropDown(playerPosition, "显示玩家位置箭头", 'visuals', 'player_info_position');
   separator(playerPosition);
   createDropDown(playerPosition, "Player Position Arrow Color", 'visuals', 'player_info_position_color', ['Player / Team Color', 'Team Color']);
 
-  var playerHealth = createSection(playerInfoTab, 'Player Health');
-  createYesNoDropDown(playerHealth, "Show Player Health", 'visuals', 'player_info_health');
+  var playerHealth = createSection(playerInfoTab, '玩家生命值');
+  createYesNoDropDown(playerHealth, "显示玩家生命值", 'visuals', 'player_info_health');
   separator(playerHealth);
   createDropDown(playerHealth, "Player Health Text Color", 'visuals', 'player_info_health_color', ['Health-based', 'White']);
 
-  var playerWeapon = createSection(playerInfoTab, 'Player Weapon');
-  createYesNoDropDown(playerWeapon, "Show Player Active Weapon Icon", 'visuals', 'player_info_weapon');
+  var playerWeapon = createSection(playerInfoTab, '玩家武器图标');
+  createYesNoDropDown(playerWeapon, "显示玩家武器武器图标", 'visuals', 'player_info_weapon');
   separator(playerWeapon);
-  createYesNoDropDown(playerWeapon, "Show Player Active Weapon Ammo", 'visuals', 'player_info_weapon_clip');
+  createYesNoDropDown(playerWeapon, "显示玩家武器弹药", 'visuals', 'player_info_weapon_clip');
   separator(playerWeapon);
-  createYesNoDropDown(playerWeapon, 'Show Bomb Carrier Icon', 'visuals', 'player_info_bomb_carrier');
+  createYesNoDropDown(playerWeapon, '显示携带炸弹图标', 'visuals', 'player_info_bomb_carrier');
   separator(playerWeapon);
-  createYesNoDropDown(playerWeapon, 'Show Bomb Planting Icon', 'visuals', 'player_info_bomb_planting');
+  createYesNoDropDown(playerWeapon, '显示安装炸弹图标', 'visuals', 'player_info_bomb_planting');
 
-  var playerIcons = createSection(playerInfoTab, 'Icons');
-  createYesNoDropDown(playerIcons, "Show Defuse Icon", 'visuals', 'player_info_defuse');
+  var playerIcons = createSection(playerInfoTab, '图标');
+  createYesNoDropDown(playerIcons, "显示拆除炸弹图标", 'visuals', 'player_info_defuse');
   separator(playerIcons);
-  createYesNoDropDown(playerIcons, 'Show Picking Up Hostage Icon', 'visuals', 'player_info_hostage_pickup');
+  createYesNoDropDown(playerIcons, '显示接走人质图标', 'visuals', 'player_info_hostage_pickup');
   separator(playerIcons);
-  createYesNoDropDown(playerIcons, 'Show Rescuing Hostage Icon', 'visuals', 'player_info_hostage_rescue');
+  createYesNoDropDown(playerIcons, '显示解救人质图标', 'visuals', 'player_info_hostage_rescue');
   separator(playerIcons);
-  createYesNoDropDown(playerIcons, 'Show Blinded By Flashbang Icon', 'visuals', 'player_info_blinded');
+  createYesNoDropDown(playerIcons, '显示闪光弹致盲图标', 'visuals', 'player_info_blinded');
 
   var outlineGlowTab = createSubTab(visuals, 'outline_glow');
 
-  var outlineGlow = createSection(outlineGlowTab, 'Outline Glow');
-  createOnOffDropDown(outlineGlow, "Master Switch", 'visuals', 'outline_glow_enable');
+  var outlineGlow = createSection(outlineGlowTab, '轮廓发光');
+  createOnOffDropDown(outlineGlow, "总开关", 'visuals', 'outline_glow_enable');
 
-  var playerOutlineGlow = createSection(outlineGlowTab, 'Players');
-  createDropDown(playerOutlineGlow, "Glow Players", 'visuals', 'player_outline_glow', ['Enemies', 'All Players', 'Off']);
+  var playerOutlineGlow = createSection(outlineGlowTab, '玩家');
+  createDropDown(playerOutlineGlow, "玩家发光", 'visuals', 'player_outline_glow', ['敌人', '所有玩家', '关闭']);
   separator(playerOutlineGlow);
-  createDropDown(playerOutlineGlow, "Player Glow Color", 'visuals', 'player_outline_glow_color', ['Player / Team Color', 'Team Color', 'Health-based', 'Enemy / Ally']);
-  separator(playerOutlineGlow);
-  separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Player Blue Hue", 'player_outline_glow_blue_hue', 191, 240);
-  separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Player Green Hue", 'player_outline_glow_green_hue', 110, 140);
-  separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Player Yellow Hue", 'player_outline_glow_yellow_hue', 47, 60);
-  separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Player Orange Hue", 'player_outline_glow_orange_hue', 11, 20);
-  separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Player Purple Hue", 'player_outline_glow_purple_hue', 250, 280);
+  createDropDown(playerOutlineGlow, "颜色", 'visuals', 'player_outline_glow_color', ['玩家颜色', '队伍颜色', '随血量变化', '敌方/友方']);
   separator(playerOutlineGlow);
   separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Team T Hue", 'player_outline_glow_t_hue', 30, 40);
+  createHueSlider(playerOutlineGlow, "蓝色玩家色调", 'player_outline_glow_blue_hue', 191, 240);
   separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Team CT Hue", 'player_outline_glow_ct_hue', 210, 230);
+  createHueSlider(playerOutlineGlow, "绿色玩家色调", 'player_outline_glow_green_hue', 110, 140);
+  separator(playerOutlineGlow);
+  createHueSlider(playerOutlineGlow, "黄色玩家色调", 'player_outline_glow_yellow_hue', 47, 60);
+  separator(playerOutlineGlow);
+  createHueSlider(playerOutlineGlow, "橙色玩家色调", 'player_outline_glow_orange_hue', 11, 20);
+  separator(playerOutlineGlow);
+  createHueSlider(playerOutlineGlow, "紫色玩家色调", 'player_outline_glow_purple_hue', 250, 280);
   separator(playerOutlineGlow);
   separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "High Health Hue", 'player_outline_glow_high_hp_hue', 0, 359);
+  createHueSlider(playerOutlineGlow, "T阵营色调", 'player_outline_glow_t_hue', 30, 40);
   separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Low Health Hue", 'player_outline_glow_low_hp_hue', 0, 359);
+  createHueSlider(playerOutlineGlow, "CT阵营色调", 'player_outline_glow_ct_hue', 210, 230);
   separator(playerOutlineGlow);
   separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Enemy Hue", 'player_outline_glow_enemy_hue', 0, 359);
+  createHueSlider(playerOutlineGlow, "高生命值色调", 'player_outline_glow_high_hp_hue', 0, 359);
   separator(playerOutlineGlow);
-  createHueSlider(playerOutlineGlow, "Ally Hue", 'player_outline_glow_ally_hue', 0, 359);
+  createHueSlider(playerOutlineGlow, "低生命值色调", 'player_outline_glow_low_hp_hue', 0, 359);
+  separator(playerOutlineGlow);
+  separator(playerOutlineGlow);
+  createHueSlider(playerOutlineGlow, "敌方色调", 'player_outline_glow_enemy_hue', 0, 359);
+  separator(playerOutlineGlow);
+  createHueSlider(playerOutlineGlow, "友方色调", 'player_outline_glow_ally_hue', 0, 359);
 
-  var weaponOutlineGlow = createSection(outlineGlowTab, 'Weapons');
-  createYesNoDropDown(weaponOutlineGlow, "Glow Weapons on Ground Nearby", 'visuals', 'weapon_outline_glow');
+  var weaponOutlineGlow = createSection(outlineGlowTab, '武器');
+  createYesNoDropDown(weaponOutlineGlow, "附近地上的武器发光", 'visuals', 'weapon_outline_glow');
   separator(weaponOutlineGlow);
-  createYesNoDropDown(weaponOutlineGlow, "Glow Grenade Projectiles", 'visuals', 'grenade_proj_outline_glow');
+  createYesNoDropDown(weaponOutlineGlow, "道具发光", 'visuals', 'grenade_proj_outline_glow');
   separator(weaponOutlineGlow);
   separator(weaponOutlineGlow);
-  createHueSlider(weaponOutlineGlow, "Flashbang Hue", 'outline_glow_flashbang_hue', 191, 250);
+  createHueSlider(weaponOutlineGlow, "闪光弹色调", 'outline_glow_flashbang_hue', 191, 250);
   separator(weaponOutlineGlow);
-  createHueSlider(weaponOutlineGlow, "HE Grenade Hue", 'outline_glow_hegrenade_hue', 300, 359);
+  createHueSlider(weaponOutlineGlow, "手雷色调", 'outline_glow_hegrenade_hue', 300, 359);
   separator(weaponOutlineGlow);
-  createHueSlider(weaponOutlineGlow, "Smoke Grenade Hue", 'outline_glow_smoke_hue', 110, 140);
+  createHueSlider(weaponOutlineGlow, "烟雾弹色调", 'outline_glow_smoke_hue', 110, 140);
   separator(weaponOutlineGlow);
-  createHueSlider(weaponOutlineGlow, "Molotov / Incendiary Grenade Hue", 'outline_glow_molotov_hue', 20, 60);
+  createHueSlider(weaponOutlineGlow, "燃烧瓶/燃烧弹色调", 'outline_glow_molotov_hue', 20, 60);
 
-  var bombAndDefuseKitOutlineGlow = createSection(outlineGlowTab, 'Bomb & Defuse Kit');
-  createYesNoDropDown(bombAndDefuseKitOutlineGlow, "Glow Dropped Bomb", 'visuals', 'dropped_bomb_outline_glow');
+  var bombAndDefuseKitOutlineGlow = createSection(outlineGlowTab, '炸弹 & 拆弹器');
+  createYesNoDropDown(bombAndDefuseKitOutlineGlow, "掉落炸弹发光", 'visuals', 'dropped_bomb_outline_glow');
   separator(bombAndDefuseKitOutlineGlow);
-  createYesNoDropDown(bombAndDefuseKitOutlineGlow, "Glow Ticking Bomb", 'visuals', 'ticking_bomb_outline_glow');
+  createYesNoDropDown(bombAndDefuseKitOutlineGlow, "已安装的炸弹发光", 'visuals', 'ticking_bomb_outline_glow');
   separator(bombAndDefuseKitOutlineGlow);
-  createYesNoDropDown(bombAndDefuseKitOutlineGlow, "Glow Defuse Kits on Ground Nearby", 'visuals', 'defuse_kit_outline_glow');
+  createYesNoDropDown(bombAndDefuseKitOutlineGlow, "附近地上的拆弹器发光", 'visuals', 'defuse_kit_outline_glow');
   separator(bombAndDefuseKitOutlineGlow);
   separator(bombAndDefuseKitOutlineGlow);
-  createHueSlider(bombAndDefuseKitOutlineGlow, "Dropped Bomb Hue", 'outline_glow_dropped_bomb_hue', 0, 359);
+  createHueSlider(bombAndDefuseKitOutlineGlow, "掉落炸弹色调", 'outline_glow_dropped_bomb_hue', 0, 359);
   separator(bombAndDefuseKitOutlineGlow);
-  createHueSlider(bombAndDefuseKitOutlineGlow, "Ticking Bomb Hue", 'outline_glow_ticking_bomb_hue', 0, 359);
+  createHueSlider(bombAndDefuseKitOutlineGlow, "已安装的炸弹色调", 'outline_glow_ticking_bomb_hue', 0, 359);
   separator(bombAndDefuseKitOutlineGlow);
-  createHueSlider(bombAndDefuseKitOutlineGlow, "Defuse Kit Hue", 'outline_glow_defuse_kit_hue', 0, 359);
+  createHueSlider(bombAndDefuseKitOutlineGlow, "拆弹器色调", 'outline_glow_defuse_kit_hue', 0, 359);
 
-  var hostageOutlineGlow = createSection(outlineGlowTab, 'Hostages');
-  createYesNoDropDown(hostageOutlineGlow, "Glow Hostages", 'visuals', 'hostage_outline_glow');
+  var hostageOutlineGlow = createSection(outlineGlowTab, '人质');
+  createYesNoDropDown(hostageOutlineGlow, "人质发光", 'visuals', 'hostage_outline_glow');
   separator(hostageOutlineGlow);
-  createHueSlider(hostageOutlineGlow, "Hostage Hue", 'outline_glow_hostage_hue', 0, 359);
+  createHueSlider(hostageOutlineGlow, "人质色调", 'outline_glow_hostage_hue', 0, 359);
 
   var _modelGlowTab = createSubTab(visuals, 'model_glow');
   _modelGlowTab.style.overflow = 'squish squish';
@@ -631,69 +631,69 @@ u8R"(
 
   var modelGlowTab = $.CreatePanel('Panel', _modelGlowTab, '', { style: 'flow-children: down; margin-right: 40px; overflow: squish scroll;' });
 
-  var modelGlow = createSection(modelGlowTab, 'Model Glow');
-  createOnOffDropDown(modelGlow, "Master Switch", 'visuals', 'model_glow_enable');
+  var modelGlow = createSection(modelGlowTab, '模型发光');
+  createOnOffDropDown(modelGlow, "总开关", 'visuals', 'model_glow_enable');
 
-  var playerModelGlow = createSection(modelGlowTab, 'Players');
-  createDropDown(playerModelGlow, "Glow Player Models", 'visuals', 'player_model_glow', ['Enemies', 'All Players', 'Off']);
+  var playerModelGlow = createSection(modelGlowTab, '玩家');
+  createDropDown(playerModelGlow, "玩家模型发光", 'visuals', 'player_model_glow', ['敌人', '所有玩家', '关闭']);
   separator(playerModelGlow);
-  createDropDown(playerModelGlow, "Player Model Glow Color Mode", 'visuals', 'player_model_glow_color', ['Player / Team Color', 'Team Color', 'Health-based', 'Enemy / Ally']);
-  separator(playerModelGlow);
-  separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Player Blue Hue", 'player_model_glow_blue_hue', 191, 240);
-  separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Player Green Hue", 'player_model_glow_green_hue', 110, 140);
-  separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Player Yellow Hue", 'player_model_glow_yellow_hue', 47, 60);
-  separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Player Orange Hue", 'player_model_glow_orange_hue', 11, 20);
-  separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Player Purple Hue", 'player_model_glow_purple_hue', 250, 280);
+  createDropDown(playerModelGlow, "颜色", 'visuals', 'player_model_glow_color', ['玩家颜色', '队伍颜色', '随血量变化', '敌方/友方']);
   separator(playerModelGlow);
   separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Team T Hue", 'player_model_glow_t_hue', 30, 40);
+  createHueSlider(playerModelGlow, "蓝色玩家色调", 'player_model_glow_blue_hue', 191, 240);
   separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Team CT Hue", 'player_model_glow_ct_hue', 210, 230);
+  createHueSlider(playerModelGlow, "绿色玩家色调", 'player_model_glow_green_hue', 110, 140);
+  separator(playerModelGlow);
+  createHueSlider(playerModelGlow, "黄色玩家色调", 'player_model_glow_yellow_hue', 47, 60);
+  separator(playerModelGlow);
+  createHueSlider(playerModelGlow, "橙色玩家色调", 'player_model_glow_orange_hue', 11, 20);
+  separator(playerModelGlow);
+  createHueSlider(playerModelGlow, "紫色玩家色调", 'player_model_glow_purple_hue', 250, 280);
   separator(playerModelGlow);
   separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "High Health Hue", 'player_model_glow_high_hp_hue', 0, 359);
+  createHueSlider(playerModelGlow, "T阵营色调", 'player_model_glow_t_hue', 30, 40);
   separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Low Health Hue", 'player_model_glow_low_hp_hue', 0, 359);
+  createHueSlider(playerModelGlow, "CT阵营色调", 'player_model_glow_ct_hue', 210, 230);
   separator(playerModelGlow);
   separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Enemy Hue", 'player_model_glow_enemy_hue', 0, 359);
+  createHueSlider(playerModelGlow, "高血量色调", 'player_model_glow_high_hp_hue', 0, 359);
   separator(playerModelGlow);
-  createHueSlider(playerModelGlow, "Ally Hue", 'player_model_glow_ally_hue', 0, 359);
+  createHueSlider(playerModelGlow, "低血量色调", 'player_model_glow_low_hp_hue', 0, 359);
+  separator(playerModelGlow);
+  separator(playerModelGlow);
+  createHueSlider(playerModelGlow, "敌方色调", 'player_model_glow_enemy_hue', 0, 359);
+  separator(playerModelGlow);
+  createHueSlider(playerModelGlow, "友方色调", 'player_model_glow_ally_hue', 0, 359);
 )"
 // split the string literal because MSVC does not support string literals longer than 16k chars - error C2026
 u8R"(
-  var weaponModelGlow = createSection(modelGlowTab, 'Weapons');
-  createYesNoDropDown(weaponModelGlow, "Glow Weapon Models on Ground", 'visuals', 'weapon_model_glow');
+  var weaponModelGlow = createSection(modelGlowTab, '武器');
+  createYesNoDropDown(weaponModelGlow, "地上的武器模型发光", 'visuals', 'weapon_model_glow');
   separator(weaponModelGlow);
-  createYesNoDropDown(weaponModelGlow, "Glow Grenade Projectile Models", 'visuals', 'grenade_proj_model_glow');
+  createYesNoDropDown(weaponModelGlow, "道具发光", 'visuals', 'grenade_proj_model_glow');
   separator(weaponModelGlow);
   separator(weaponModelGlow);
-  createHueSlider(weaponModelGlow, "Flashbang Hue", 'model_glow_flashbang_hue', 191, 250);
+  createHueSlider(weaponModelGlow, "闪光弹色调", 'model_glow_flashbang_hue', 191, 250);
   separator(weaponModelGlow);
-  createHueSlider(weaponModelGlow, "HE Grenade Hue", 'model_glow_hegrenade_hue', 300, 359);
+  createHueSlider(weaponModelGlow, "手雷色调", 'model_glow_hegrenade_hue', 300, 359);
   separator(weaponModelGlow);
-  createHueSlider(weaponModelGlow, "Smoke Grenade Hue", 'model_glow_smoke_hue', 110, 140);
+  createHueSlider(weaponModelGlow, "烟雾弹色调", 'model_glow_smoke_hue', 110, 140);
   separator(weaponModelGlow);
-  createHueSlider(weaponModelGlow, "Molotov / Incendiary Grenade Hue", 'model_glow_molotov_hue', 20, 60);
+  createHueSlider(weaponModelGlow, "燃烧瓶/燃烧弹色调", 'model_glow_molotov_hue', 20, 60);
 
-  var bombModelGlow = createSection(modelGlowTab, 'Bomb & Defuse Kit');
-  createYesNoDropDown(bombModelGlow, "Glow Dropped Bomb Model", 'visuals', 'dropped_bomb_model_glow');
+  var bombModelGlow = createSection(modelGlowTab, '炸弹与拆弹器');
+  createYesNoDropDown(bombModelGlow, "掉落的炸弹发光", 'visuals', 'dropped_bomb_model_glow');
   separator(bombModelGlow);
-  createYesNoDropDown(bombModelGlow, "Glow Ticking Bomb Model", 'visuals', 'ticking_bomb_model_glow');
+  createYesNoDropDown(bombModelGlow, "已安装的炸弹发光", 'visuals', 'ticking_bomb_model_glow');
   separator(bombModelGlow);
-  createYesNoDropDown(bombModelGlow, "Glow Defuse Kit Models on Ground", 'visuals', 'defuse_kit_model_glow');
+  createYesNoDropDown(bombModelGlow, "地上的拆弹器发光", 'visuals', 'defuse_kit_model_glow');
   separator(bombModelGlow);
   separator(bombModelGlow);
-  createHueSlider(bombModelGlow, "Dropped Bomb Hue", 'model_glow_dropped_bomb_hue', 0, 359);
+  createHueSlider(bombModelGlow, "掉落的炸弹色调", 'model_glow_dropped_bomb_hue', 0, 359);
   separator(bombModelGlow);
-  createHueSlider(bombModelGlow, "Ticking Bomb Hue", 'model_glow_ticking_bomb_hue', 0, 359);
+  createHueSlider(bombModelGlow, "已安装的炸弹色调", 'model_glow_ticking_bomb_hue', 0, 359);
   separator(bombModelGlow);
-  createHueSlider(bombModelGlow, "Defuse Kit Hue", 'model_glow_defuse_kit_hue', 0, 359);
+  createHueSlider(bombModelGlow, "拆弹器色调", 'model_glow_defuse_kit_hue', 0, 359);
 
   var _viewmodelTab = createSubTab(visuals, 'viewmodel');
   _viewmodelTab.style.overflow = 'squish squish';
@@ -718,11 +718,11 @@ u8R"(
 
   var viewmodelTab = $.CreatePanel('Panel', _viewmodelTab, '', { style: 'flow-children: down; margin-right: 40px; overflow: squish scroll;' });
 
-  var viewmodelModification = createSection(viewmodelTab, 'Viewmodel Modification');
-  createOnOffDropDown(viewmodelModification, "Master Switch", 'visuals', 'viewmodel_mod');
+  var viewmodelModification = createSection(viewmodelTab, '视图修改模型');
+  createOnOffDropDown(viewmodelModification, "总开关", 'visuals', 'viewmodel_mod');
 
-  var viewmodelFov = createSection(viewmodelTab, 'Viewmodel Fov');
-  createYesNoDropDown(viewmodelFov, "Modify Viewmodel Fov", 'visuals', 'viewmodel_fov_mod');
+  var viewmodelFov = createSection(viewmodelTab, '视图FOV');
+  createYesNoDropDown(viewmodelFov, "修改视图FOV", 'visuals', 'viewmodel_fov_mod');
   separator(viewmodelFov);
   createSlider(viewmodelFov, "Fov", 'viewmodel_fov', 40, 90);
 
@@ -730,21 +730,21 @@ u8R"(
 
   var sound = createTab('sound');
   
-  var playerSoundVisualization = createSection(sound, 'Player Sound Visualization');
+  var playerSoundVisualization = createSection(sound, '玩家声音可视化');
   separator(playerSoundVisualization);
-  createYesNoDropDown(playerSoundVisualization, "Visualize Player Footstep Sound", 'sound', 'visualize_player_footsteps');
+  createYesNoDropDown(playerSoundVisualization, "可视化玩家脚步声", 'sound', 'visualize_player_footsteps');
 
-  var bombSoundVisualization = createSection(sound, 'Bomb Sound Visualization');
-  createYesNoDropDown(bombSoundVisualization, "Visualize Bomb Plant Sound", 'sound', 'visualize_bomb_plant');
+  var bombSoundVisualization = createSection(sound, '炸弹音效可视化');
+  createYesNoDropDown(bombSoundVisualization, "安装炸弹声音可视化", 'sound', 'visualize_bomb_plant');
   separator(bombSoundVisualization);
-  createYesNoDropDown(bombSoundVisualization, "Visualize Bomb Beep Sound", 'sound', 'visualize_bomb_beep');
+  createYesNoDropDown(bombSoundVisualization, "炸弹哔哔声可视化", 'sound', 'visualize_bomb_beep');
   separator(bombSoundVisualization);
-  createYesNoDropDown(bombSoundVisualization, "Visualize Bomb Defuse Sound", 'sound', 'visualize_bomb_defuse');
+  createYesNoDropDown(bombSoundVisualization, "拆弹声音可视化", 'sound', 'visualize_bomb_defuse');
 
-  var weaponSoundVisualization = createSection(sound, 'Weapon Sound Visualization');
-  createYesNoDropDown(weaponSoundVisualization, "Visualize Weapon Scope Sound", 'sound', 'visualize_scope_sound');
+  var weaponSoundVisualization = createSection(sound, '武器声音可视化');
+  createYesNoDropDown(weaponSoundVisualization, "可视化武器瞄准镜声音", 'sound', 'visualize_scope_sound');
   separator(weaponSoundVisualization);
-  createYesNoDropDown(weaponSoundVisualization, "Visualize Weapon Reload Sound", 'sound', 'visualize_reload_sound');
+  createYesNoDropDown(weaponSoundVisualization, "可视化武器换弹声音", 'sound', 'visualize_reload_sound');
 
   $.Osiris.navigateToTab('hud');
 })();
